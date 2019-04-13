@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".LoginActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_email"
+        android:hint="E-mail giriniz"
+        android:textSize="20dp"
+        android:padding="7dp"
+        android:background="@drawable/myrect"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_password"
+        android:inputType="textPassword"
+        android:hint="Şifre giriniz"
+        android:padding="7dp"
+        android:textSize="20dp"
+        android:background="@drawable/myrect"
+        android:layout_marginTop="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_button"
+            android:text="Giriş Yap"
+            android:layout_marginLeft="75dp"
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/myrect"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign_up_button"
+            android:text="Kayıt Ol"
+            android:layout_marginLeft="40dp"
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/myrect"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
