@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.seniorproject.Retrofit.Models.GetField;
+import com.example.seniorproject.Retrofit.Models.Result;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
 import com.example.seniorproject.Retrofit.Rest.ManagerAll;
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ public class Detail extends AppCompatActivity {
     ListView listView;
     Singleton singleton;
     List<GetField> getFieldList;
+    String temp, hum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class Detail extends AppCompatActivity {
         fill_list();
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Tarlalarınız");
+        thingSpeak();
     }
 
     public void init() {
@@ -80,4 +85,57 @@ public class Detail extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void thingSpeak() {
+        Call<ThingSpeak> thingSpeakCall = ManagerAll.getInstance().thingSpeak();
+        thingSpeakCall.enqueue(new Callback<ThingSpeak>() {
+            @Override
+            public void onResponse(Call<ThingSpeak> call, Response<ThingSpeak> response) {
+                temp = response.body().getFeeds().get(99).getField1();
+                System.out.println("kayıt: " + temp);
+                thingSpeakHum();
+            }
+
+            @Override
+            public void onFailure(Call<ThingSpeak> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void thingSpeakHum() {
+       Call<ThingSpeakHum> thingSpeakHumCall = ManagerAll.getInstance().thingSpeakHum();
+       thingSpeakHumCall.enqueue(new Callback<ThingSpeakHum>() {
+           @Override
+           public void onResponse(Call<ThingSpeakHum> call, Response<ThingSpeakHum> response) {
+               hum = response.body().getFeeds().get(99).getField2();
+               System.out.println("kayıt hum: " + hum);
+               tempAndHum();
+           }
+
+           @Override
+           public void onFailure(Call<ThingSpeakHum> call, Throwable t) {
+
+           }
+       });
+    }
+
+    public void tempAndHum() {
+        Call<Result> call = ManagerAll.getInstance().tempAndHum(temp, hum);
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                 String word = "success";
+                 if(word.equals(response.body().getResult())) {
+                     System.out.println("kayıt başarılı");
+                 }
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+                System.out.println("problem: " + t.getMessage());
+            }
+        });
+    }
+
 }

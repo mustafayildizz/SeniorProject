@@ -70,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         } else {
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
+//            latitude = location.getLatitude();
+//            longitude = location.getLongitude();
             System.out.println("konum: " + latitude + " " + longitude);
         }
 
@@ -83,8 +83,8 @@ public class LoginActivity extends AppCompatActivity {
         if (grantResults.length > 0 && requestCode == 1) {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
+//                latitude = location.getLatitude();
+//                longitude = location.getLongitude();
                 singleton = Singleton.getInstance();
                 singleton.setLocation(latitude+","+longitude);
                 System.out.println("konum: " + latitude + " " + longitude);

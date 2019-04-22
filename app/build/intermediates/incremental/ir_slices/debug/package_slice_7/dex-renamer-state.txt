@@ -1,4 +1,4 @@
-#Mon Apr 08 18:38:40 EET 2019
-base.0=/home/gokhan/Downloads/SeniorProject/app/build/intermediates/transforms/dexMerger/debug/7
+#Sat Apr 20 15:05:25 EET 2019
+base.0=/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/transforms/dexMerger/debug/7
 path.0=classes.dex
 renamed.0=classes.dex

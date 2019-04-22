@@ -14,6 +14,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Url;
 
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
 import com.example.seniorproject.Singleton;
 
 
@@ -38,5 +40,16 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("add_field_page.php")
     Call<Result> addField(@Field("fieldname") String fieldname, @Field("desiredproduct") String desiredProduct, @Field("region") String region, @Field("userid") String userid);
+
+    @GET("1.json")
+    Call<ThingSpeak> thingSpeak();
+
+    @GET("2.json")
+    Call<ThingSpeakHum> thingSpeakHum();
+
+    @FormUrlEncoded
+    @POST("temp_hum.php")
+    Call<Result> tempAndHum(@Field("temperature") String temp, @Field("humidity") String hum);
+
 
 }

@@ -7,6 +7,8 @@ import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.GetId;
 import com.example.seniorproject.Retrofit.Models.GetUser;
 import com.example.seniorproject.Retrofit.Models.Result;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
 
 import java.util.List;
 
@@ -42,6 +44,21 @@ public class ManagerAll extends BaseManager {
     public Call<Result> addField(String fieldname, String desiredProduct, String region, String userid) {
         Call<Result> addField = getRestApi().addField(fieldname, desiredProduct, region, userid);
         return addField;
+    }
+
+    public Call<ThingSpeak> thingSpeak() {
+        Call<ThingSpeak> thingSpeakCall = getDataThingSpeak().thingSpeak();
+        return thingSpeakCall;
+    }
+
+    public Call<Result> tempAndHum(String temp, String hum) {
+        Call<Result> tempAndHum = getRestApi().tempAndHum(temp, hum);
+        return tempAndHum;
+    }
+
+    public Call<ThingSpeakHum> thingSpeakHum() {
+        Call<ThingSpeakHum> thingSpeakHum = getDataThingSpeak().thingSpeakHum();
+        return thingSpeakHum;
     }
 
 }

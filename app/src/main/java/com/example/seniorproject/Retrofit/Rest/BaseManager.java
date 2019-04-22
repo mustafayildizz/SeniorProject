@@ -12,4 +12,9 @@ public class BaseManager {
         RestApiClient restApiClient = new RestApiClient(BaseUrl.base_url_dark_sky);
         return  restApiClient.getRestApi();
     }
+
+    protected RestApi getDataThingSpeak() {
+        RestApiClient restApiClient = new RestApiClient(BaseUrl.base_url_thingspeak);
+        return restApiClient.getRestApi();
+    }
 }
