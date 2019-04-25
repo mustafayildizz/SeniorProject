@@ -61,4 +61,9 @@ public class ManagerAll extends BaseManager {
         return thingSpeakHum;
     }
 
+    public Call<Result> tempAndHumAndOut(String temp, String hum, String output) {
+        Call<Result> tempAndHumAndOut = getDataThingSpeak().tempAndHumAndOut(temp, hum, output);
+        return tempAndHumAndOut;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.seniorproject;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,8 @@ public class Detail extends AppCompatActivity {
     Singleton singleton;
     List<GetField> getFieldList;
     String temp, hum;
+    Runnable runnable;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +40,26 @@ public class Detail extends AppCompatActivity {
         fill_list();
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Tarlalarınız");
-        thingSpeak();
+        writeDataToDatabase();
     }
 
     public void init() {
         listView = findViewById(R.id.main_listview);
         singleton = Singleton.getSingleton();
+    }
+
+    public void writeDataToDatabase() {
+        handler = new Handler();
+
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                thingSpeak();
+                handler.postDelayed(runnable, 5000);
+            }
+        };
+
+        handler.post(runnable);
     }
 
     public void fill_list() {
@@ -136,6 +153,10 @@ public class Detail extends AppCompatActivity {
                 System.out.println("problem: " + t.getMessage());
             }
         });
+    }
+
+    public void tempAndHumAndOut() {
+        Call<Result> call = ManagerAll.getInstance().tempAndHumAndOut(temp, hum, o)
     }
 
 }

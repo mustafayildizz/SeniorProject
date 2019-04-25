@@ -51,5 +51,7 @@ public interface RestApi {
     @POST("temp_hum.php")
     Call<Result> tempAndHum(@Field("temperature") String temp, @Field("humidity") String hum);
 
-
+    @FormUrlEncoded
+    @POST("temp_hum_output.php")
+    Call<Result> tempAndHumAndOut(@Field("temp") String temp, @Field("hum") String hum, @Field("output") String output);
 }
