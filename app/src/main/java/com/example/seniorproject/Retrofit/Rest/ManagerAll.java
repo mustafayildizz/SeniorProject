@@ -9,6 +9,7 @@ import com.example.seniorproject.Retrofit.Models.GetUser;
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakOut.ThingSpeakOut;
 
 import java.util.List;
 
@@ -61,8 +62,13 @@ public class ManagerAll extends BaseManager {
         return thingSpeakHum;
     }
 
+    public Call<ThingSpeakOut> thingSpeakOut() {
+        Call<ThingSpeakOut> thingSpeakOut = getDataThingSpeak().thingSpeakOut();
+        return thingSpeakOut;
+    }
+
     public Call<Result> tempAndHumAndOut(String temp, String hum, String output) {
-        Call<Result> tempAndHumAndOut = getDataThingSpeak().tempAndHumAndOut(temp, hum, output);
+        Call<Result> tempAndHumAndOut = getRestApi().tempAndHumAndOut(temp, hum, output);
         return tempAndHumAndOut;
     }
 

@@ -13,8 +13,10 @@ import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakOut.ThingSpeakOut;
 import com.example.seniorproject.Retrofit.Rest.ManagerAll;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class Detail extends AppCompatActivity {
     ListView listView;
     Singleton singleton;
     List<GetField> getFieldList;
-    String temp, hum;
+    String temp, hum, out;
     Runnable runnable;
     Handler handler;
 
@@ -109,7 +111,7 @@ public class Detail extends AppCompatActivity {
             @Override
             public void onResponse(Call<ThingSpeak> call, Response<ThingSpeak> response) {
                 temp = response.body().getFeeds().get(99).getField1();
-                System.out.println("kayıt: " + temp);
+                System.out.println("alınan temp: " + temp);
                 thingSpeakHum();
             }
 
@@ -126,8 +128,8 @@ public class Detail extends AppCompatActivity {
            @Override
            public void onResponse(Call<ThingSpeakHum> call, Response<ThingSpeakHum> response) {
                hum = response.body().getFeeds().get(99).getField2();
-               System.out.println("kayıt hum: " + hum);
-               tempAndHum();
+               System.out.println("alınan hum: " + hum);
+               thingSpeakOut();
            }
 
            @Override
@@ -135,6 +137,23 @@ public class Detail extends AppCompatActivity {
 
            }
        });
+    }
+
+    public void thingSpeakOut() {
+        Call<ThingSpeakOut> thingSpeakOutCall = ManagerAll.getInstance().thingSpeakOut();
+        thingSpeakOutCall.enqueue(new Callback<ThingSpeakOut>() {
+            @Override
+            public void onResponse(Call<ThingSpeakOut> call, Response<ThingSpeakOut> response) {
+                out = response.body().getFeeds().get(99).getField3();
+                System.out.println("alınan output: " + out);
+                tempAndHumAndOut();
+            }
+
+            @Override
+            public void onFailure(Call<ThingSpeakOut> call, Throwable t) {
+
+            }
+        });
     }
 
     public void tempAndHum() {
@@ -156,7 +175,22 @@ public class Detail extends AppCompatActivity {
     }
 
     public void tempAndHumAndOut() {
-        Call<Result> call = ManagerAll.getInstance().tempAndHumAndOut(temp, hum, o)
+        Call<Result> call = ManagerAll.getInstance().tempAndHumAndOut(temp, hum, out);
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                String word = "success";
+                if(word.equals(response.body().getResult())) {
+                    System.out.println("kayıt başarılı");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+
+            }
+        });
+
     }
 
 }

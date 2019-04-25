@@ -16,6 +16,7 @@ import retrofit2.http.Url;
 
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakOut.ThingSpeakOut;
 import com.example.seniorproject.Singleton;
 
 
@@ -46,6 +47,9 @@ public interface RestApi {
 
     @GET("2.json")
     Call<ThingSpeakHum> thingSpeakHum();
+
+    @GET("3.json")
+    Call<ThingSpeakOut> thingSpeakOut();
 
     @FormUrlEncoded
     @POST("temp_hum.php")
