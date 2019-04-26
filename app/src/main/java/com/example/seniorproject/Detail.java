@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.Result;
@@ -38,6 +39,7 @@ public class Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+
         init();
         fill_list();
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -48,6 +50,7 @@ public class Detail extends AppCompatActivity {
     public void init() {
         listView = findViewById(R.id.main_listview);
         singleton = Singleton.getSingleton();
+
     }
 
     public void writeDataToDatabase() {
@@ -57,11 +60,10 @@ public class Detail extends AppCompatActivity {
             @Override
             public void run() {
                 thingSpeak();
-                handler.postDelayed(runnable, 1000);
+                handler.postDelayed(runnable, 100);
             }
         };
-
-        handler.post(runnable);
+       handler.post(runnable);
     }
 
     public void fill_list() {
