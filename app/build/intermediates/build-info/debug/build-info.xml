@@ -2,76 +2,40 @@
 <instant-run
     abi="x86"
     api-level="27"
-    build-mode="FULL"
+    build-mode="COLD"
     density="420dpi"
     format="10"
     plugin-version="3.4.0"
-    timestamp="1556223114733"
+    timestamp="1556289184812"
     token="-3767219165020067208"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1771" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="322" />
+        duration="0" />
     <task
         name="verifier"
-        duration="4" />
+        duration="0" />
 
     <artifact
         location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1556223114733"
+        timestamp="1556285106206"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
@@ -106,6 +70,14 @@
         <artifact
             location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1556289184812"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

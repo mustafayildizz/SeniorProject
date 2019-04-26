@@ -1,6 +1,6 @@
 package com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum;
 
-public class FeedsItem{
+public class 	FeedsItem{
 	private String createdAt;
 	private int entryId;
 	private String field2;

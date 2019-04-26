@@ -29,7 +29,7 @@ public class Detail extends AppCompatActivity {
     ListView listView;
     Singleton singleton;
     List<GetField> getFieldList;
-    String temp, hum, out;
+    String temp, hum, out, tempTemp, tempHum;
     Runnable runnable;
     Handler handler;
 
@@ -57,7 +57,7 @@ public class Detail extends AppCompatActivity {
             @Override
             public void run() {
                 thingSpeak();
-                handler.postDelayed(runnable, 5000);
+                handler.postDelayed(runnable, 1000);
             }
         };
 
@@ -111,7 +111,9 @@ public class Detail extends AppCompatActivity {
             @Override
             public void onResponse(Call<ThingSpeak> call, Response<ThingSpeak> response) {
                 temp = response.body().getFeeds().get(99).getField1();
+                tempTemp = response.body().getFeeds().get(98).getField1();
                 System.out.println("alınan temp: " + temp);
+                System.out.println("alınan temptemp: " + tempTemp);
                 thingSpeakHum();
             }
 
@@ -127,11 +129,18 @@ public class Detail extends AppCompatActivity {
        thingSpeakHumCall.enqueue(new Callback<ThingSpeakHum>() {
            @Override
            public void onResponse(Call<ThingSpeakHum> call, Response<ThingSpeakHum> response) {
-               hum = response.body().getFeeds().get(99).getField2();
-               System.out.println("alınan hum: " + hum);
-               thingSpeakOut();
+               hum = response.body().getFeeds().get(98).getField2();
+               tempHum = response.body().getFeeds().get(99).getField2();
+               if (temp.equals(tempHum) && hum.equals(tempHum)) {
+                   System.out.println("aynı veri geldi...");
+               } else {
+                   System.out.println("xxxalınan hum: " + hum   );
+                   System.out.println("xxxalınan temphum: " + tempHum);
+                   System.out.println("xxxalınan temp: " + temp);
+                   System.out.println("xxxalınan temptemp: " + tempTemp);
+                   thingSpeakOut();
+               }
            }
-
            @Override
            public void onFailure(Call<ThingSpeakHum> call, Throwable t) {
 
@@ -187,7 +196,7 @@ public class Detail extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Result> call, Throwable t) {
-
+                System.out.println("hata var: " + t.getMessage());
             }
         });
 
