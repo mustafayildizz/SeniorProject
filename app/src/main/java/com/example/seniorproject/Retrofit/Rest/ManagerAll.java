@@ -5,6 +5,7 @@ import com.example.seniorproject.Retrofit.Models.DarkSky.Currently;
 import com.example.seniorproject.Retrofit.Models.DarkSky.DarkSky;
 import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.GetId;
+import com.example.seniorproject.Retrofit.Models.GetOutput;
 import com.example.seniorproject.Retrofit.Models.GetUser;
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
@@ -52,8 +53,8 @@ public class ManagerAll extends BaseManager {
         return thingSpeakCall;
     }
 
-    public Call<Result> tempAndHum(String temp, String hum) {
-        Call<Result> tempAndHum = getRestApi().tempAndHum(temp, hum);
+    public Call<Result> tempAndHum(String temp, String hum, String fieldid, String userid) {
+        Call<Result> tempAndHum = getRestApi().tempAndHum(temp, hum, fieldid, userid);
         return tempAndHum;
     }
 
@@ -70,6 +71,11 @@ public class ManagerAll extends BaseManager {
     public Call<Result> tempAndHumAndOut(String temp, String hum, String output) {
         Call<Result> tempAndHumAndOut = getRestApi().tempAndHumAndOut(temp, hum, output);
         return tempAndHumAndOut;
+    }
+
+    public Call<GetOutput> getOutput() {
+        Call<GetOutput> getOutput = getRestApi().getOutput();
+        return getOutput;
     }
 
 }

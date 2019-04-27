@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.seniorproject.Retrofit.Models.GetOutput;
 import com.example.seniorproject.Retrofit.Models.Result;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
+import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
 import com.example.seniorproject.Retrofit.Rest.ManagerAll;
 import com.google.gson.annotations.SerializedName;
 
@@ -28,6 +31,7 @@ public class AddFieldActivity extends AppCompatActivity {
     long parent1;
     int parent2;
     EditText fieldName, desiredProduct;
+    String temp, hum, getFieldId, check = "false";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +67,15 @@ public class AddFieldActivity extends AppCompatActivity {
                     call.enqueue(new Callback<Result>() {
                         @Override
                         public void onResponse(Call<Result> call, Response<Result> response) {
-                            String word = "success";
-                            if(word.equals(response.body().getResult())) {
-                                Intent intent = new Intent(getApplicationContext(), Detail.class);
-                                startActivity(intent);
-                            }
+                           if(response.isSuccessful()) {
+                               getFieldId = response.body().getResult();
+                               singleton.setGetFiedlId(getFieldId);
+                               thingSpeak();
+                               Intent intent = new Intent(getApplicationContext(), Detail.class);
+                               check = "true";
+                               intent.putExtra("check", check);
+                               startActivity(intent);
+                           }
                         }
 
                         @Override
@@ -80,19 +88,96 @@ public class AddFieldActivity extends AppCompatActivity {
         });
     }
 
+    public void thingSpeak() {
+
+        Call<ThingSpeak> thingSpeakCall = ManagerAll.getInstance().thingSpeak();
+        thingSpeakCall.enqueue(new Callback<ThingSpeak>() {
+            @Override
+            public void onResponse(Call<ThingSpeak> call, Response<ThingSpeak> response) {
+                temp = response.body().getFeeds().get(99).getField1();
+                System.out.println("alınan temp: " + temp);
+                thingSpeakHum();
+            }
+
+            @Override
+            public void onFailure(Call<ThingSpeak> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    public void thingSpeakHum() {
+        Call<ThingSpeakHum> thingSpeakHumCall = ManagerAll.getInstance().thingSpeakHum();
+        thingSpeakHumCall.enqueue(new Callback<ThingSpeakHum>() {
+            @Override
+            public void onResponse(Call<ThingSpeakHum> call, Response<ThingSpeakHum> response) {
+                hum = response.body().getFeeds().get(99).getField2();
+
+                System.out.println("xxxalınan hum: " + hum);
+                System.out.println("xxxalınan temp: " + temp);
+
+                tempAndHum();
+            }
+
+            @Override
+            public void onFailure(Call<ThingSpeakHum> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void thingSpeakUserAndFieldId() {
+
+    }
+
+    public void tempAndHum() {
+        Call<Result> call = ManagerAll.getInstance().tempAndHum(temp, hum, getFieldId, singleton.getUser_id());
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                String word = "success";
+                if (word.equals(response.body().getResult())) {
+                    System.out.println("kayıt başarılı");
+                    getOutput();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+                System.out.println("problem: " + t.getMessage());
+            }
+        });
+    }
+
+    public void getOutput() {
+        Call<GetOutput> getOutputCall = ManagerAll.getInstance().getOutput();
+        getOutputCall.enqueue(new Callback<GetOutput>() {
+            @Override
+            public void onResponse(Call<GetOutput> call, Response<GetOutput> response) {
+                System.out.println("getoutput: " + response.body().getResult());
+            }
+
+            @Override
+            public void onFailure(Call<GetOutput> call, Throwable t) {
+                System.out.println("gethatalar burada: " + t.getMessage());
+            }
+        });
+    }
+
     public void setSpinner() {
-      spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-          @Override
-          public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-              parent1 = id;
-              singleton.setRegion(parent.getItemAtPosition(position).toString());
-          }
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                parent1 = id;
+                singleton.setRegion(parent.getItemAtPosition(position).toString());
+            }
 
-          @Override
-          public void onNothingSelected(AdapterView<?> parent) {
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-          }
-      });
+            }
+        });
     }
 
 }

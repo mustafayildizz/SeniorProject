@@ -3,6 +3,7 @@ package com.example.seniorproject.Retrofit.Rest;
 import com.example.seniorproject.Retrofit.Models.DarkSky.DarkSky;
 import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.GetId;
+import com.example.seniorproject.Retrofit.Models.GetOutput;
 import com.example.seniorproject.Retrofit.Models.Result;
 
 import java.util.List;
@@ -53,9 +54,12 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("temp_hum.php")
-    Call<Result> tempAndHum(@Field("temperature") String temp, @Field("humidity") String hum);
+    Call<Result> tempAndHum(@Field("temperature") String temp, @Field("humidity") String hum, @Field("fieldid") String fieldid, @Field("userid") String userid);
 
     @FormUrlEncoded
     @POST("temp_hum_output.php")
     Call<Result> tempAndHumAndOut(@Field("temp") String temp, @Field("hum") String hum, @Field("output") String output);
+
+    @GET(" avarage_get_and_post_output.php")
+    Call<GetOutput> getOutput();
 }

@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.seniorproject.Retrofit.Models.GetField;
+import com.example.seniorproject.Retrofit.Models.GetOutput;
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
@@ -31,7 +32,7 @@ public class Detail extends AppCompatActivity {
     ListView listView;
     Singleton singleton;
     List<GetField> getFieldList;
-    String temp, hum, out, tempTemp, tempHum;
+    String temp, hum, out, tempTemp, tempHum, check = "false";
     Handler handler;
     Runnable runnable;
 
@@ -40,12 +41,16 @@ public class Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        if(check.equals("true")) {
+            writeDataToDatabase();
+        }
 
+        check = getIntent().getStringExtra("check");
         init();
         fill_list();
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Tarlalarınız");
-        writeDataToDatabase();
+
     }
 
     public void init() {
@@ -147,36 +152,37 @@ public class Detail extends AppCompatActivity {
         });
     }
 
-    public void thingSpeakOut() {
-        Call<ThingSpeakOut> thingSpeakOutCall = ManagerAll.getInstance().thingSpeakOut();
-        thingSpeakOutCall.enqueue(new Callback<ThingSpeakOut>() {
-            @Override
-            public void onResponse(Call<ThingSpeakOut> call, Response<ThingSpeakOut> response) {
-                out = response.body().getFeeds().get(99).getField3();
-                System.out.println("alınan output: " + out);
-            }
-
-            @Override
-            public void onFailure(Call<ThingSpeakOut> call, Throwable t) {
-
-            }
-        });
-    }
 
     public void tempAndHum() {
-        Call<Result> call = ManagerAll.getInstance().tempAndHum(temp, hum);
+        Call<Result> call = ManagerAll.getInstance().tempAndHum(temp, hum, singleton.getGetFiedlId(), singleton.getUser_id());
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 String word = "success";
                 if (word.equals(response.body().getResult())) {
                     System.out.println("kayıt başarılı");
+                    getOutput();
                 }
             }
 
             @Override
             public void onFailure(Call<Result> call, Throwable t) {
                 System.out.println("problem: " + t.getMessage());
+            }
+        });
+    }
+
+    public void getOutput() {
+        Call<GetOutput> getOutputCall = ManagerAll.getInstance().getOutput();
+        getOutputCall.enqueue(new Callback<GetOutput>() {
+            @Override
+            public void onResponse(Call<GetOutput> call, Response<GetOutput> response) {
+                System.out.println("getoutput: " + response.body().getResult());
+            }
+
+            @Override
+            public void onFailure(Call<GetOutput> call, Throwable t) {
+                System.out.println("gethatalar burada: " + t.getMessage());
             }
         });
     }

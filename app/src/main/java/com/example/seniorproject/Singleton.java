@@ -7,6 +7,15 @@ public class Singleton {
     private String weather;
     private String user_id;
     private String location;
+    private String getFiedlId;
+
+    public String getGetFiedlId() {
+        return getFiedlId;
+    }
+
+    public void setGetFiedlId(String getFiedlId) {
+        this.getFiedlId = getFiedlId;
+    }
 
     public String getLocation() {
         return location;
