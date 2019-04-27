@@ -5,24 +5,23 @@
     build-mode="COLD"
     density="420dpi"
     format="10"
-    ir-eligibility="METHOD_ADDED"
     plugin-version="3.4.0"
-    timestamp="1556312327429"
+    timestamp="1556322240662"
     token="-3767219165020067208"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="164" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="54" />
+        duration="0" />
     <task
         name="verifier"
-        duration="3" />
+        duration="0" />
 
     <artifact
         location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
@@ -30,13 +29,13 @@
 
     <build
         build-mode="FULL"
-        timestamp="1556311066807"
+        timestamp="1556321701262"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
@@ -74,8 +73,7 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1556312327429"
+        timestamp="1556322240662"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
