@@ -41,6 +41,8 @@ import retrofit2.Response;
  */
 public class LoginActivity extends AppCompatActivity {
 
+    public static PrefConfig prefConfig;
+
     View loginButton, signUpButton;
     EditText username, password;
     LocationManager locationManager;
@@ -53,10 +55,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        init();
-        setLoginButton();
-        setSignUpButton();
-        getDataWithDarkSky();
+        prefConfig = new PrefConfig(this);
+        if (prefConfig.readLoginStatus()) {
+            Intent detail = new Intent(getApplicationContext(), Detail.class);
+            startActivity(detail);
+        } else {
+            init();
+            setLoginButton();
+            setSignUpButton();
+            getDataWithDarkSky();
+        }
     }
 
     public void init() {
@@ -78,16 +86,19 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults.length > 0 && requestCode == 1) {
             if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//                latitude = location.getLatitude();
-//                longitude = location.getLongitude();
-                singleton = Singleton.getInstance();
-                singleton.setLocation(latitude+","+longitude);
-                System.out.println("konum: " + latitude + " " + longitude);
+                if (location != null) {
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                    singleton = Singleton.getInstance();
+                    singleton.setLocation(latitude + "," + longitude);
+                    System.out.println("konum: " + latitude + " " + longitude);
+                }
             } else {
                 Toast.makeText(getApplicationContext(), "Lütfen bölge seçiniz", Toast.LENGTH_LONG).show();
             }
@@ -110,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Lütfen bilgilerinizi kontrol edin", Toast.LENGTH_SHORT).show();
 
                 } else {
-
+                    prefConfig.writeLoginStatus(true);
                     singleton.setUser_id(response.body().getUser_id());
                     Intent intent = new Intent(getApplicationContext(), Detail.class);
                     startActivity(intent);

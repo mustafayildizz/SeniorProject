@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
+            "outputFile": "/home/gokhan/StudioProjects/SeniorProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/c1827d7653194150ffb307e2b92117fc/res/values-port/values-port.xml",
+                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/84f61ff300f3143e8eb6ee11d63fa3a4/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

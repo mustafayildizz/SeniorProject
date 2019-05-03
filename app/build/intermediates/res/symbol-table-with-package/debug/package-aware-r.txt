@@ -1083,6 +1083,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id count_down_textView
 id custom
 id customPanel
 id decor_content_parent
@@ -1299,6 +1300,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_field
+layout activity_count_down
 layout activity_create_user
 layout activity_detail
 layout activity_detailed
@@ -1401,6 +1403,9 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string permission_rationale
+string pref_file
+string pref_login_status
+string pref_user_name
 string project_id
 string prompt_email
 string prompt_password

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailedActivity extends AppCompatActivity {
-
+    Singleton singleton;
     TextView fieldName, region, desiredProduct;
     List<GetField> getFieldList;
 
@@ -33,9 +33,11 @@ public class DetailedActivity extends AppCompatActivity {
         region = findViewById(R.id.region);
         desiredProduct = findViewById(R.id.desired_product);
         getFieldList = new ArrayList<>();
+        singleton = Singleton.getInstance();
     }
 
     public void setView() {
        // fieldName.setText(getFieldList.get(0).getFieldname());
     }
+
 }

@@ -8,6 +8,15 @@ public class Singleton {
     private String user_id;
     private String location;
     private String getFiedlId;
+    private float getOutput;
+
+    public float getGetOutput() {
+        return getOutput;
+    }
+
+    public void setGetOutput(float getOutput) {
+        this.getOutput = getOutput;
+    }
 
     public String getGetFiedlId() {
         return getFiedlId;

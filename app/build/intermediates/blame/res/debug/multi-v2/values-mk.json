@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/gokhan/AndroidStudioProjects/SeniorProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mk/values-mk.xml",
+            "outputFile": "/home/gokhan/StudioProjects/SeniorProject/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mk/values-mk.xml",
             "map": [
                 {
-                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/c1827d7653194150ffb307e2b92117fc/res/values-mk/values-mk.xml",
+                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/84f61ff300f3143e8eb6ee11d63fa3a4/res/values-mk/values-mk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/7d4a6a278645e35270e81bca31f83ce7/res/values-mk/values-mk.xml",
+                    "source": "/home/gokhan/.gradle/caches/transforms-2/files-2.1/12107beb6dfe72dbcbec530ce7b24bdd/res/values-mk/values-mk.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -179,5 +179,4 @@ public class AddFieldActivity extends AppCompatActivity {
             }
         });
     }
-
 }
