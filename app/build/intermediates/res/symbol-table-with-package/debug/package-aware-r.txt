@@ -995,6 +995,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable agriculture_logo
 drawable avd_hide_password
 drawable avd_show_password
 drawable button
@@ -1005,6 +1006,9 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable example_field
+drawable gradient
+drawable ic_action_pass
+drawable ic_action_user
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
@@ -1076,6 +1080,7 @@ id center_vertical
 id chains
 id checkbox
 id chronometer
+id city
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1094,7 +1099,9 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id desired_product
+id desired_product_detail_layout
 id detail_layout_listview
+id dialog_spinner_x
 id dimensions
 id direct
 id disableHome
@@ -1113,6 +1120,7 @@ id filled
 id fixed
 id forever
 id ghost_view
+id go_back
 id gone
 id group_divider
 id groups
@@ -1132,6 +1140,7 @@ id largeLabel
 id left
 id line1
 id line3
+id linearLayout
 id listMode
 id list_item
 id login_button
@@ -1158,15 +1167,15 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
-id password_createActivity
 id percent
-id phone_createActivity
 id pin
+id product_info
 id progress_circular
 id progress_horizontal
 id radio
+id refresh_product
 id region
-id register_createActivity
+id region_spinner
 id right
 id right_icon
 id right_side
@@ -1202,7 +1211,6 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
-id spinner_region
 id split_action_bar
 id spread
 id spread_inside
@@ -1223,6 +1231,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1244,8 +1253,9 @@ id unlabeled
 id up
 id useLogo
 id user_email
-id user_name_createActivity
+id user_email_create
 id user_password
+id user_password_create
 id view_offset_helper
 id visible
 id weather
@@ -1321,6 +1331,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout detail_layout
+layout dialog_spinner
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

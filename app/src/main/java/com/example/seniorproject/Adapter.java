@@ -51,7 +51,7 @@ public class Adapter extends BaseAdapter {
 
         TextView field_name = convertView.findViewById(R.id.field_name);
         TextView weather = convertView.findViewById(R.id.weather);
-        TextView desiredProduct = convertView.findViewById(R.id.desired_product);
+        TextView desiredProduct = convertView.findViewById(R.id.desired_product_detail_layout);
         TextView region = convertView.findViewById(R.id.region);
         field_name.setText(getFieldList.get(position).getFieldname());
         weather.setText(singleton.getWeather());
@@ -61,11 +61,15 @@ public class Adapter extends BaseAdapter {
         LinearLayout linearLayout;
         linearLayout = convertView.findViewById(R.id.detail_layout_listview);
 
+        final String region_intent = getFieldList.get(position).getRegion();
+        final String fieldName_intent = getFieldList.get(position).getFieldname();
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity.getApplicationContext(), DetailedActivity.class);
+                intent.putExtra("field_name", fieldName_intent);
+                intent.putExtra("region", region_intent);
                 activity.startActivity(intent);
             }
         });

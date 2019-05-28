@@ -4,6 +4,7 @@ import com.example.seniorproject.Retrofit.Models.DarkSky.DarkSky;
 import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.GetId;
 import com.example.seniorproject.Retrofit.Models.GetOutput;
+import com.example.seniorproject.Retrofit.Models.ProductInfo;
 import com.example.seniorproject.Retrofit.Models.Result;
 
 import java.util.List;
@@ -62,4 +63,9 @@ public interface RestApi {
 
     @GET(" avarage_get_and_post_output.php")
     Call<GetOutput> getOutput();
+
+    @FormUrlEncoded
+    @POST("product_info.php")
+    Call<ProductInfo> productInfo(@Field("product") String product);
+
 }

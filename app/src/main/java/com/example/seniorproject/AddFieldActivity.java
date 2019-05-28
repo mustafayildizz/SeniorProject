@@ -30,7 +30,7 @@ public class AddFieldActivity extends AppCompatActivity {
     View addFieldButton;
     long parent1;
     int parent2;
-    EditText fieldName, desiredProduct;
+    EditText fieldName, city;
     String temp, hum, getFieldId, check = "false";
 
     @Override
@@ -47,8 +47,8 @@ public class AddFieldActivity extends AppCompatActivity {
 
     public void init() {
         fieldName = findViewById(R.id.field_name);
-        desiredProduct = findViewById(R.id.desired_product);
-        spinner = findViewById(R.id.spinner_region);
+        city = findViewById(R.id.city);
+        spinner = findViewById(R.id.region_spinner);
         addFieldButton = findViewById(R.id.add_field_button);
         ArrayAdapter<CharSequence> spinner_array = ArrayAdapter.createFromResource(this, R.array.region, android.R.layout.simple_spinner_item);
         spinner_array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -63,7 +63,7 @@ public class AddFieldActivity extends AppCompatActivity {
                 if (parent1 == 0) {
                     Toast.makeText(getApplicationContext(), "Lütfen bölge seçiniz", Toast.LENGTH_LONG).show();
                 } else {
-                    Call<Result> call = ManagerAll.getInstance().addField(fieldName.getText().toString(), desiredProduct.getText().toString(), singleton.getRegion(), singleton.getUser_id());
+                    Call<Result> call = ManagerAll.getInstance().addField(fieldName.getText().toString(), city.getText().toString(), singleton.getRegion(), singleton.getUser_id());
                     call.enqueue(new Callback<Result>() {
                         @Override
                         public void onResponse(Call<Result> call, Response<Result> response) {
@@ -125,10 +125,6 @@ public class AddFieldActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    public void thingSpeakUserAndFieldId() {
-
     }
 
     public void tempAndHum() {

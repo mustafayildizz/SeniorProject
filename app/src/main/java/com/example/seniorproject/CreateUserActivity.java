@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Rest.ManagerAll;
@@ -17,7 +18,8 @@ import retrofit2.Response;
 public class CreateUserActivity extends AppCompatActivity {
 
     EditText username, password, phone;
-    Button register;
+    View register;
+    TextView goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +28,14 @@ public class CreateUserActivity extends AppCompatActivity {
 
         init();
         setRegister();
+        setGoBack();
     }
 
     public void init() {
-        username = findViewById(R.id.user_name_createActivity);
-        password = findViewById(R.id.password_createActivity);
-        phone = findViewById(R.id.phone_createActivity);
-        register = findViewById(R.id.register_createActivity);
+        username = findViewById(R.id.user_email_create);
+        password = findViewById(R.id.user_password_create);
+        register = findViewById(R.id.sign_up_button);
+        goBack = findViewById(R.id.go_back);
     }
 
     public void request() {
@@ -56,6 +59,16 @@ public class CreateUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 request();
+            }
+        });
+    }
+
+    public void setGoBack() {
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

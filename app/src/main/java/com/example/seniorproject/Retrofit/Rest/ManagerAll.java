@@ -7,6 +7,7 @@ import com.example.seniorproject.Retrofit.Models.GetField;
 import com.example.seniorproject.Retrofit.Models.GetId;
 import com.example.seniorproject.Retrofit.Models.GetOutput;
 import com.example.seniorproject.Retrofit.Models.GetUser;
+import com.example.seniorproject.Retrofit.Models.ProductInfo;
 import com.example.seniorproject.Retrofit.Models.Result;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
@@ -76,6 +77,11 @@ public class ManagerAll extends BaseManager {
     public Call<GetOutput> getOutput() {
         Call<GetOutput> getOutput = getRestApi().getOutput();
         return getOutput;
+    }
+
+    public Call<ProductInfo> productInfo(String product) {
+        Call<ProductInfo> productInfo = getRestApi().productInfo(product);
+        return productInfo;
     }
 
 }

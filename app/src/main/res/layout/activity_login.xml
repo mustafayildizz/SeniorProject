@@ -1,63 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".LoginActivity">
+    android:background="@drawable/gradient"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/agriculture_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/user_email"
-        android:hint="E-mail giriniz"
-        android:textSize="20dp"
-        android:padding="7dp"
-        android:background="@drawable/myrect"/>
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/user_password"
+        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/user_password"
+        android:layout_width="250dp"
+        android:textColor="#fff"
+        android:layout_height="40dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_pass"
+        android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:hint="Şifre giriniz"
-        android:padding="7dp"
-        android:textSize="20dp"
-        android:background="@drawable/myrect"
-        android:layout_marginTop="20dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_marginBottom="130dp"
+        android:layout_alignBottom="@+id/login_button"
+        android:layout_alignLeft="@+id/user_email"
+        android:layout_alignStart="@+id/user_email" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:id="@+id/login_button"
+        android:layout_marginBottom="31dp"
+        android:layout_above="@+id/sign_up_button"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Giriş Yap"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Buradan Kayıt Ol"
+        android:textColor="#fff"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_button"
-            android:text="Giriş Yap"
-            android:layout_marginLeft="75dp"
-            android:padding="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/myrect"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sign_up_button"
-            android:text="Kayıt Ol"
-            android:layout_marginLeft="40dp"
-            android:padding="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/myrect"/>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:id="@+id/linearLayout">
 
     </LinearLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -46,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="7dp"
-            android:text="gokhanyildiz"
-            android:id="@+id/desired_product"
+            android:id="@+id/desired_product_detail_layout"
+            android:clickable="true"
             android:textColor="#fff"
             android:textSize="25dp" />
 

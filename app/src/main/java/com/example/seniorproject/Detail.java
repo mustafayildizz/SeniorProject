@@ -1,6 +1,7 @@
 package com.example.seniorproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeak;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakHum.ThingSpeakHum;
 import com.example.seniorproject.Retrofit.Models.ThingSpeak.ThingSpeakOut.ThingSpeakOut;
 import com.example.seniorproject.Retrofit.Rest.ManagerAll;
+import com.google.gson.Gson;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -32,6 +34,7 @@ public class Detail extends AppCompatActivity {
     ListView listView;
     Singleton singleton;
     List<GetField> getFieldList;
+    ArrayList<String> product_list;
     String temp, hum, output;
     int size;
     Handler handler;
@@ -187,7 +190,13 @@ public class Detail extends AppCompatActivity {
                 System.out.println("alınangetoutput: " + response.body().getResult());
                 output = response.body().getResult();
                 setAppropriatedProduct(Float.parseFloat(output), Float.parseFloat(temp), Float.parseFloat(hum));
-                System.out.println("hala almadın mı veriyi");
+                if(product_list.contains("Ürün bulunamadı")) {
+                    Toast.makeText(getApplicationContext(), "Ürün bulunamadı...", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
+                    Toast.makeText(getApplicationContext(), "Lütfen ürüm seçimini yapınız.", Toast.LENGTH_LONG).show();
+                    //startActivity(intent);
+                }
             }
 
             @Override
@@ -197,7 +206,7 @@ public class Detail extends AppCompatActivity {
         });
     }
 
-    public class MyThread implements Runnable{
+    public class MyThread implements Runnable {
         @Override
         public void run() {
             try {
@@ -205,190 +214,231 @@ public class Detail extends AppCompatActivity {
                 System.out.println("thread çalıştı: " + thread.currentThread().getName());
                 getOutput();
                 Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
-              //  startActivity(intent);
+                //  startActivity(intent);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void setAppropriatedProduct(float output,float temperature, float humidity) {
-        String [] grup1={"Bugday","Patates","Arpa"};
-        String [] grup2={"Nohut","Biber"};
-        String [] grup3={"Arpa","Buğday","Domates"};
-        String [] grup4={"Mısır","Nohut","Soðan"};
-        String [] grup5={"Domates","Arpa"};
-        String [] grup6={"Biber","Nohut","Mısır"};
-        String [] grup7={"Patates","Buðday"};
-        String [] grup8={"Soðan"};
-        String [] grup9={"Pamuk","Arpa","Domates"};
+    public void setAppropriatedProduct(float output, float temperature, float humidity) {
+        String[] grup1 = {"Bugday", "Patates", "Arpa"};
+        String[] grup2 = {"Nohut", "Biber"};
+        String[] grup3 = {"Arpa", "Buğday", "Domates"};
+        String[] grup4 = {"Mısır", "Nohut", "Soðan"};
+        String[] grup5 = {"Domates", "Arpa"};
+        String[] grup6 = {"Biber", "Nohut", "Mısır"};
+        String[] grup7 = {"Patates", "Buðday"};
+        String[] grup8 = {"Soðan"};
+        String[] grup9 = {"Pamuk", "Arpa", "Domates"};
 
         int counter = 0;
 
-        if(output>0.0 && output<=2.0){
-            if(temperature<=10 && temperature>=8 && humidity>=43)
-            {
+        product_list = new ArrayList<>();
+
+        if (output > 0.0 && output <= 2.0) {
+            if (temperature <= 10 && temperature >= 8 && humidity >= 43) {
                 counter++;
                 System.out.println("1.ürün= " + grup1[1]);
                 System.out.println("2.ürün= " + grup1[0]);
                 System.out.println("3.ürün= " + grup1[2]);
 
+                product_list.add(grup1[1]);
+                product_list.add(grup1[0]);
+                product_list.add(grup1[2]);
             }
-            if(temperature>10 && humidity>=60)
-            {
+            if (temperature > 10 && humidity >= 60) {
                 counter++;
                 System.out.println("1.ürün= " + grup1[2]);
                 System.out.println("2.ürün= " + grup1[0]);
+
+                product_list.add(grup1[2]);
+                product_list.add(grup1[0]);
             }
-            if(temperature>10 && humidity<60 && humidity>=43)
-            {
+            if (temperature > 10 && humidity < 60 && humidity >= 43) {
                 counter++;
                 System.out.println("1.ürün= " + grup1[0]);
                 System.out.println("2.ürün= " + grup1[1]);
+
+                product_list.add(grup1[0]);
+                product_list.add(grup1[1]);
             }
         }
-        if(output>=1 && output<=3)
-        {
-            if(temperature<=18 && humidity<=20)
-            {
+        if (output >= 1 && output <= 3) {
+            if (temperature <= 18 && humidity <= 20) {
                 counter++;
                 System.out.println("1.ürün= " + grup2[1]);
                 System.out.println("2.ürün= " + grup2[0]);
+
+                product_list.add(grup2[1]);
+                product_list.add(grup2[0]);
             }
-            if(temperature<=18 && humidity>=20 && humidity<=30)
-            {
+            if (temperature <= 18 && humidity >= 20 && humidity <= 30) {
                 counter++;
                 System.out.println("1.ürün= " + grup2[0]);
                 System.out.println("2.ürün= " + grup2[1]);
+
+                product_list.add(grup2[0]);
+                product_list.add(grup2[1]);
             }
 
         }
-        if(output>=2 && output<=4)
-        {
-            if(temperature<14 && temperature>=8 && humidity>58 && humidity<=63)
-            {
+        if (output >= 2 && output <= 4) {
+            if (temperature < 14 && temperature >= 8 && humidity > 58 && humidity <= 63) {
                 counter++;
                 System.out.println("1.ürün= " + grup3[1]);
                 System.out.println("2.ürün= " + grup3[0]);
                 System.out.println("3.ürün= " + grup3[2]);
+
+                product_list.add(grup3[1]);
+                product_list.add(grup3[0]);
+                product_list.add(grup3[2]);
             }
-            if(temperature>15 && humidity>58 && humidity<=70)
-            {
+            if (temperature > 15 && humidity > 58 && humidity <= 70) {
                 counter++;
                 System.out.println("1.ürün= " + grup3[0]);
                 System.out.println("2.ürün= " + grup3[2]);
 
+                product_list.add(grup3[0]);
+                product_list.add(grup3[2]);
             }
         }
-        if(output>=3 && output<=5)
-        {
+        if (output >= 3 && output <= 5) {
 
-            if(temperature>=15 && temperature<=26 && humidity>=20 && humidity<=30)
-            {
+            if (temperature >= 15 && temperature <= 26 && humidity >= 20 && humidity <= 30) {
                 counter++;
                 System.out.println("1.ürün= " + grup4[0]);
                 System.out.println("2.ürün= " + grup4[1]);
+
+                product_list.add(grup4[0]);
+                product_list.add(grup4[1]);
             }
-            if(temperature>=15 && temperature<27 && humidity>30 && humidity<=40)
-            {
+            if (temperature >= 15 && temperature < 27 && humidity > 30 && humidity <= 40) {
                 counter++;
                 System.out.println("1.ürün= " + grup4[2]);
                 System.out.println("2.ürün= " + grup4[0]);
                 System.out.println("3.ürün= " + grup4[1]);
+
+                product_list.add(grup4[2]);
+                product_list.add(grup4[0]);
+                product_list.add(grup4[1]);
             }
-            if(temperature>=27 && humidity>20 && humidity<=40)
-            {
+            if (temperature >= 27 && humidity > 20 && humidity <= 40) {
                 counter++;
                 System.out.println("1.ürün= " + grup4[0]);
+
+                product_list.add(grup4[0]);
             }
 
         }
-        if(output>=4 && output<=6)
-        {
-            if(temperature>=14 && humidity>=60 && humidity<=70)
-            {
+        if (output >= 4 && output <= 6) {
+            if (temperature >= 14 && humidity >= 60 && humidity <= 70) {
                 counter++;
                 System.out.println("1.ürün= " + grup5[0]);
                 System.out.println("2.ürün= " + grup5[1]);
+
+                product_list.add(grup5[0]);
+                product_list.add(grup5[1]);
             }
-            if(temperature<14 && humidity>=60 && humidity<=80)
-            {
+            if (temperature < 14 && humidity >= 60 && humidity <= 80) {
                 counter++;
                 System.out.println("1.ürün= " + grup5[1]);
+
+                product_list.add(grup5[1]);
             }
         }
-        if(output>=5 && output<=7)
-        {
-            if(temperature<18 && humidity>=10 && humidity<=30)
-            {
+        if (output >= 5 && output <= 7) {
+            if (temperature < 18 && humidity >= 10 && humidity <= 30) {
                 counter++;
                 System.out.println("1.ürün= " + grup6[1]);
                 System.out.println("2.ürün= " + grup6[2]);
+
+                product_list.add(grup6[1]);
+                product_list.add(grup6[2]);
             }
-            if(temperature>=18 && humidity<20)
-            {
+            if (temperature >= 18 && humidity < 20) {
                 counter++;
                 System.out.println("1.ürün= " + grup6[0]);
                 System.out.println("2.ürün= " + grup6[1]);
+
+                product_list.add(grup6[0]);
+                product_list.add(grup6[1]);
             }
-            if(temperature>18 && humidity==20)
-            {
+            if (temperature > 18 && humidity == 20) {
                 counter++;
                 System.out.println("1.ürün= " + grup6[1]);
                 System.out.println("2.ürün= " + grup6[0]);
                 System.out.println("3.ürün= " + grup6[2]);
 
+                product_list.add(grup6[1]);
+                product_list.add(grup6[0]);
+                product_list.add(grup6[2]);
             }
         }
-        if(output>=6 && output<=8)
-        {
-            if(temperature<=10 && temperature>=8  && humidity>=58 && humidity<=63)
-            {
+        if (output >= 6 && output <= 8) {
+            if (temperature <= 10 && temperature >= 8 && humidity >= 58 && humidity <= 63) {
                 counter++;
                 System.out.println("1.ürün= " + grup7[0]);
                 System.out.println("2.ürün= " + grup7[1]);
+
+                product_list.add(grup7[0]);
+                product_list.add(grup7[1]);
             }
-            if(temperature>10 && humidity>58)
-            {
+            if (temperature > 10 && humidity > 58) {
                 counter++;
                 System.out.println("1.ürün= " + grup7[1]);
+
+                product_list.add(grup7[1]);
             }
-            if(temperature<8 && humidity<58)
-            {
+            if (temperature < 8 && humidity < 58) {
                 counter++;
                 System.out.println("1.ürün= " + grup7[0]);
+
+                product_list.add(grup7[0]);
             }
         }
-        if(output>=7 && output<=9)
-        {
-            if(temperature<=21 && temperature<=27 && humidity>=40 && humidity<=55)
-            {
+        if (output >= 7 && output <= 9) {
+            if (temperature <= 21 && temperature <= 27 && humidity >= 40 && humidity <= 55) {
                 counter++;
                 System.out.println("1.ürün= " + grup8[0]);
+                product_list.add(grup8[0]);
             }
         }
-        if(output>=8 && output<=10)
-        {
-            if(temperature<=20 && humidity>=60 && humidity<70)
-            {
+        if (output >= 8 && output <= 10) {
+            if (temperature <= 20 && humidity >= 60 && humidity < 70) {
                 counter++;
                 System.out.println("1.ürün= " + grup9[2]);
                 System.out.println("1.ürün= " + grup9[1]);
+
+                product_list.add(grup9[2]);
+                product_list.add(grup9[1]);
             }
-            if(temperature>=14 && temperature<=20 && humidity==70)
-            {
+            if (temperature >= 14 && temperature <= 20 && humidity == 70) {
                 counter++;
                 System.out.println("1.ürün= " + grup9[1]);
                 System.out.println("1.ürün= " + grup9[2]);
                 System.out.println("1.ürün= " + grup9[0]);
+
+                product_list.add(grup9[1]);
+                product_list.add(grup9[2]);
+                product_list.add(grup9[0]);
             }
 
-
         }
 
-        if(counter == 0) {
+        if (counter == 0) {
             System.out.println("ürün bulunamadı...");
+
+            product_list.add("Ürün bulunamadı");
         }
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("product_list", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(product_list);
+        editor.putString("list", json);
+        editor.apply();
 
     }
 }
