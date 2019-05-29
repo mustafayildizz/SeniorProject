@@ -43,12 +43,13 @@ public class DetailedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed);
-
+        setTitle("Tarla Bilgileri");
         init();
         setView();
         getProductList();
         setDesiredProductClick();
         setRefreshButton();
+        productInfo();
         sharedProductInfo = getSharedPreferences("product_info", MODE_PRIVATE);
         if(sharedProductInfo.getBoolean("icClickTamam", false)) {
 
@@ -155,11 +156,7 @@ public class DetailedActivity extends AppCompatActivity {
                             String productInfo = response.body().getInfo();
                             product_info.setText(productInfo);
                             Toast.makeText(getApplicationContext(), "Ürün bulundu..", Toast.LENGTH_LONG).show();
-                        } else {
-                            product_info.setText("Ürün bilgisi bulunamadı...");
-                            Toast.makeText(getApplicationContext(), "ürün bulunamadı..", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
 

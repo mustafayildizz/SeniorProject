@@ -47,6 +47,7 @@ public class Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        setTitle("Tarlalarınız");
         init();
         fill_list();
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -430,6 +431,7 @@ public class Detail extends AppCompatActivity {
             System.out.println("ürün bulunamadı...");
 
             product_list.add("Ürün bulunamadı");
+            product_list.add("Buğday");
         }
 
 
