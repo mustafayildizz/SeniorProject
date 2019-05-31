@@ -31,7 +31,7 @@ public interface RestApi {
 
     @FormUrlEncoded
     @POST("add_user_page.php")
-    Call<Result> addUser(@Field("username") String username, @Field("password") String password,  @Field("phone") String phone);
+    Call<Result> addUser(@Field("username") String username, @Field("password") String password);
 
     @GET(url)
     Call<DarkSky> getData();

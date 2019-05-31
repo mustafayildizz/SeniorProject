@@ -44,15 +44,16 @@ public class DetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed);
         setTitle("Tarla Bilgileri");
+        singleton = Singleton.getInstance();
         init();
         setView();
         getProductList();
         setDesiredProductClick();
         setRefreshButton();
         productInfo();
-        sharedProductInfo = getSharedPreferences("product_info", MODE_PRIVATE);
-        if(sharedProductInfo.getBoolean("icClickTamam", false)) {
-
+        sharedProductInfo = getSharedPreferences(singleton.getFieldName() + "product_info", MODE_PRIVATE);
+        if(sharedProductInfo.getBoolean("isClickTamam", false)) {
+            desiredProduct.setText("Ürün seçiniz..");
         } else {
             refresh_button.setText("Ürün Yenile");
         }
@@ -64,7 +65,6 @@ public class DetailedActivity extends AppCompatActivity {
         region = findViewById(R.id.region);
         desiredProduct = findViewById(R.id.desired_product);
         getFieldList = new ArrayList<>();
-        singleton = Singleton.getInstance();
         product_info = findViewById(R.id.product_info);
         refresh_button = findViewById(R.id.refresh_product);
         productInfo();
@@ -73,7 +73,7 @@ public class DetailedActivity extends AppCompatActivity {
     public void setView() {
         fieldName_intent = getIntent().getStringExtra("field_name");
         region_intent = getIntent().getStringExtra("region");
-        sharedDesiredProduct = getSharedPreferences("desiredProduct", MODE_PRIVATE);
+        sharedDesiredProduct = getSharedPreferences(fieldName_intent + "desiredProduct", MODE_PRIVATE);
 
         desiredProductString = sharedDesiredProduct.getString("desired", "Ürün seçiniz..");
         desiredProduct.setText(desiredProductString);
@@ -99,9 +99,15 @@ public class DetailedActivity extends AppCompatActivity {
                 View mView = getLayoutInflater().inflate(R.layout.dialog_spinner, null);
                 mBuilder.setTitle("Ürün seçiniz");
                 final Spinner spinner = mView.findViewById(R.id.dialog_spinner_x);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(DetailedActivity.this, android.R.layout.simple_spinner_item, product_list);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter);
+                if(product_list == null)
+                {
+
+                } else {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(DetailedActivity.this, android.R.layout.simple_spinner_item, product_list);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter);
+                }
+
 
                 mBuilder.setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
                     @Override
@@ -109,7 +115,7 @@ public class DetailedActivity extends AppCompatActivity {
                         if (!spinner.getSelectedItem().toString().equalsIgnoreCase("Ürün bulunamadı")) {
                             desiredProductString = spinner.getSelectedItem().toString();
                             desiredProduct.setText(desiredProductString);
-                            sharedDesiredProduct = getSharedPreferences("desiredProduct", MODE_PRIVATE);
+                            sharedDesiredProduct = getSharedPreferences(fieldName_intent + "desiredProduct", MODE_PRIVATE);
                             SharedPreferences.Editor sharedDesiredProductEditor = sharedDesiredProduct.edit();
                             sharedDesiredProductEditor.putString("desired", spinner.getSelectedItem().toString());
                             sharedDesiredProductEditor.apply();
@@ -121,7 +127,7 @@ public class DetailedActivity extends AppCompatActivity {
                             dialog.dismiss();
                         } else {
                             desiredProduct.setText("Ürün bulunamadı");
-                            sharedDesiredProduct = getSharedPreferences("desiredProduct", MODE_PRIVATE);
+                            sharedDesiredProduct = getSharedPreferences(fieldName_intent + "desiredProduct", MODE_PRIVATE);
                             SharedPreferences.Editor sharedDesiredProductEditor = sharedDesiredProduct.edit();
                             sharedDesiredProductEditor.putString("desired", "Ürün bulunamadı");
                             sharedDesiredProductEditor.apply();
@@ -186,7 +192,7 @@ public class DetailedActivity extends AppCompatActivity {
                         if (!spinner.getSelectedItem().toString().equalsIgnoreCase("Ürün bulunamadı")) {
                             desiredProductString = spinner.getSelectedItem().toString();
                             desiredProduct.setText(desiredProductString);
-                            sharedDesiredProduct = getSharedPreferences("desiredProduct", MODE_PRIVATE);
+                            sharedDesiredProduct = getSharedPreferences(fieldName_intent + "desiredProduct", MODE_PRIVATE);
                             SharedPreferences.Editor sharedDesiredProductEditor = sharedDesiredProduct.edit();
                             sharedDesiredProductEditor.putString("desired", spinner.getSelectedItem().toString());
                             sharedDesiredProductEditor.apply();
@@ -198,7 +204,7 @@ public class DetailedActivity extends AppCompatActivity {
                             dialog.dismiss();
                         } else {
                             desiredProduct.setText("Ürün bulunamadı");
-                            sharedDesiredProduct = getSharedPreferences("desiredProduct", MODE_PRIVATE);
+                            sharedDesiredProduct = getSharedPreferences(fieldName_intent + "desiredProduct", MODE_PRIVATE);
                             SharedPreferences.Editor sharedDesiredProductEditor = sharedDesiredProduct.edit();
                             sharedDesiredProductEditor.putString("desired", "Ürün bulunamadı");
                             sharedDesiredProductEditor.apply();

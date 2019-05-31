@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     prefConfig.writeLoginStatus(true);
-                    singleton.setUser_id(response.body().getUser_id());
+                    singleton.setUser_id(response.body().getResult());
                     Intent intent = new Intent(getApplicationContext(), Detail.class);
                     startActivity(intent);
 

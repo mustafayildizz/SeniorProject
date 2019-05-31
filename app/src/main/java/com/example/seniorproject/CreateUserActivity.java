@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class CreateUserActivity extends AppCompatActivity {
 
-    EditText username, password, phone;
+    EditText username, password;
     View register;
     TextView goBack;
 
@@ -40,7 +40,7 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     public void request() {
-        Call<Result> call = ManagerAll.getInstance().addUser(username.getText().toString(), password.getText().toString(), phone.getText().toString());
+        Call<Result> call = ManagerAll.getInstance().addUser(username.getText().toString(), password.getText().toString());
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {

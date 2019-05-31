@@ -67,10 +67,10 @@ public class Detail extends AppCompatActivity {
             @Override
             public void run() {
                 thingSpeak();
-                handler.postDelayed(runnable, 45000);
+                handler.postDelayed(runnable, 20000);
             }
         };
-        handler.postDelayed(runnable, 45000);
+        handler.postDelayed(runnable, 20000);
     }
 
     public void fill_list() {
@@ -191,6 +191,7 @@ public class Detail extends AppCompatActivity {
                 System.out.println("alınangetoutput: " + response.body().getResult());
                 output = response.body().getResult();
                 setAppropriatedProduct(Float.parseFloat(output), Float.parseFloat(temp), Float.parseFloat(hum));
+               // setAppropriatedProduct(1, 9, 45);
                 if(product_list.contains("Ürün bulunamadı")) {
                     Toast.makeText(getApplicationContext(), "Ürün bulunamadı...", Toast.LENGTH_LONG).show();
                 } else {
@@ -211,7 +212,7 @@ public class Detail extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                Thread.sleep(120000);
+                Thread.sleep(90000);
                 System.out.println("thread çalıştı: " + thread.currentThread().getName());
                 getOutput();
                 Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);

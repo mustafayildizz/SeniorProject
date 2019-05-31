@@ -24,8 +24,8 @@ public class ManagerAll extends BaseManager {
         return ourInstance;
     }
 
-    public Call<Result> addUser(String username, String password, String phone) {
-        Call<Result> addUser = getRestApi().addUser(username, password, phone);
+    public Call<Result> addUser(String username, String password) {
+        Call<Result> addUser = getRestApi().addUser(username, password);
         return addUser;
     }
 
