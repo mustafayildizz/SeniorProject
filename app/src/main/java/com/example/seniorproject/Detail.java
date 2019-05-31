@@ -67,10 +67,10 @@ public class Detail extends AppCompatActivity {
             @Override
             public void run() {
                 thingSpeak();
-                handler.postDelayed(runnable, 2000);
+                handler.postDelayed(runnable, 30000);
             }
         };
-        handler.postDelayed(runnable, 2000);
+        handler.postDelayed(runnable, 30000);
     }
 
     public void fill_list() {
@@ -211,7 +211,7 @@ public class Detail extends AppCompatActivity {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(120000);
                 System.out.println("thread çalıştı: " + thread.currentThread().getName());
                 getOutput();
                 Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
@@ -431,7 +431,6 @@ public class Detail extends AppCompatActivity {
             System.out.println("ürün bulunamadı...");
 
             product_list.add("Ürün bulunamadı");
-            product_list.add("Buğday");
         }
 
 
