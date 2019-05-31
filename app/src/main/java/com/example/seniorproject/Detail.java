@@ -67,10 +67,10 @@ public class Detail extends AppCompatActivity {
             @Override
             public void run() {
                 thingSpeak();
-                handler.postDelayed(runnable, 30000);
+                handler.postDelayed(runnable, 45000);
             }
         };
-        handler.postDelayed(runnable, 30000);
+        handler.postDelayed(runnable, 45000);
     }
 
     public void fill_list() {
