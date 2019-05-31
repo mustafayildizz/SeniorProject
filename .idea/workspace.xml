@@ -19,23 +19,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/DetailedActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/DetailedActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Retrofit/Rest/ManagerAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Retrofit/Rest/ManagerAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Retrofit/Rest/RestApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Retrofit/Rest/RestApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/CreateUserActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/CreateUserActivity.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$MyThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail$MyThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/Detail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/LoginActivity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/example/seniorproject/LoginActivity$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$6.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$6.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$MyThread.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail$MyThread.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Detail.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/DetailedActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/DetailedActivity.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/LoginActivity$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/LoginActivity$1.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Retrofit/Rest/ManagerAll.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Retrofit/Rest/ManagerAll.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Retrofit/Rest/RestApi.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/0/com/example/seniorproject/Retrofit/Rest/RestApi.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/CreateUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/CreateUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Detail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/DetailedActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/DetailedActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/ManagerAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/ManagerAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/RestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/RestApi.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -103,8 +102,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Detail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
+            <state relative-caret-position="392">
+              <caret line="78" column="61" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -112,12 +111,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/DetailedActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1728">
-              <caret line="206" column="88" selection-start-line="206" selection-start-column="88" selection-end-line="206" selection-end-column="88" />
+            <state relative-caret-position="1968">
+              <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
               <folding>
                 <element signature="e#3405#6546#0" expanded="true" />
                 <element signature="e#6545#6546#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="129" column="86" selection-start-line="129" selection-start-column="75" selection-end-line="129" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -171,8 +179,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/CreateUserActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/ManagerAll.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/RestApi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/DetailedActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Detail.java" />
       </list>
     </option>
@@ -550,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559264463734</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="final son ultra ultra son">
+      <created>1559269850130</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1559269850130</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -642,7 +657,8 @@
     <MESSAGE value="final" />
     <MESSAGE value="final son" />
     <MESSAGE value="final son ultra son" />
-    <option name="LAST_COMMIT_MESSAGE" value="final son ultra son" />
+    <MESSAGE value="final son ultra ultra son" />
+    <option name="LAST_COMMIT_MESSAGE" value="final son ultra ultra son" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -890,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1424">
-          <caret line="128" column="68" selection-start-line="128" selection-start-column="68" selection-end-line="128" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Retrofit/Rest/ManagerAll.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -937,8 +946,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/DetailedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="206" column="88" selection-start-line="206" selection-start-column="88" selection-end-line="206" selection-end-column="88" />
+        <state relative-caret-position="1968">
+          <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
           <folding>
             <element signature="e#3405#6546#0" expanded="true" />
             <element signature="e#6545#6546#0" expanded="true" />
@@ -946,10 +955,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="129" column="86" selection-start-line="129" selection-start-column="75" selection-end-line="129" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/seniorproject/Detail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
+        <state relative-caret-position="392">
+          <caret line="78" column="61" selection-start-line="78" selection-start-column="61" selection-end-line="78" selection-end-column="61" />
         </state>
       </provider>
     </entry>

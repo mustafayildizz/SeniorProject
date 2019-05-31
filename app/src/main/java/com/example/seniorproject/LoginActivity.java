@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -126,6 +127,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     prefConfig.writeLoginStatus(true);
+                    SharedPreferences sharedUserId = getSharedPreferences("loginUserId", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedUserId.edit();
+                    editor.putString("userid", response.body().getResult());
+                    editor.apply();
                     singleton.setUser_id(response.body().getResult());
                     Intent intent = new Intent(getApplicationContext(), Detail.class);
                     startActivity(intent);

@@ -161,7 +161,7 @@ public class DetailedActivity extends AppCompatActivity {
                         if (!response.body().getInfo().isEmpty()) {
                             String productInfo = response.body().getInfo();
                             product_info.setText(productInfo);
-                            Toast.makeText(getApplicationContext(), "Ürün bulundu..", Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(), "Ürün bulundu..", Toast.LENGTH_LONG).show();
                         }
                     }
                 }

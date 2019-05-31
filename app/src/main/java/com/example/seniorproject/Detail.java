@@ -75,7 +75,8 @@ public class Detail extends AppCompatActivity {
 
     public void fill_list() {
         getFieldList = new ArrayList<>();
-        String user_id = singleton.getUser_id();
+        SharedPreferences sharedUserId = getSharedPreferences("loginUserId", MODE_PRIVATE);
+        String user_id = sharedUserId.getString("userid", "0");
         Call<List<GetField>> call = ManagerAll.getInstance().getField(user_id);
         call.enqueue(new Callback<List<GetField>>() {
             @Override
@@ -191,8 +192,8 @@ public class Detail extends AppCompatActivity {
                 System.out.println("alınangetoutput: " + response.body().getResult());
                 output = response.body().getResult();
                 setAppropriatedProduct(Float.parseFloat(output), Float.parseFloat(temp), Float.parseFloat(hum));
-               // setAppropriatedProduct(1, 9, 45);
-                if(product_list.contains("Ürün bulunamadı")) {
+                // setAppropriatedProduct(1, 9, 45);
+                if (product_list.contains("Ürün bulunamadı")) {
                     Toast.makeText(getApplicationContext(), "Ürün bulunamadı...", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
